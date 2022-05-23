@@ -1,0 +1,74 @@
+# D. Computer Lab: Analyzing Your Acoustic Data {-}
+
+## Part 4. Now it is time to analyze the data you collected for this week's field lab. {-}
+Upload your sound files into either the 'MyFocalRecordings' folder or the 'MySoundscapeRecordings'folder and run the code below.
+
+NOTE: Make sure to create the folders if they are not already there and add your sound files!
+```{r, echo=TRUE,eval=FALSE}
+dir.create(file.path('MyFocalRecordings'), showWarnings = FALSE)
+dir.create(file.path('MySoundscapeRecordings'), showWarnings = FALSE)
+```
+
+### Part 4a. Your focal recordings {-}
+First lets visualize the spectrograms. You may want to change the frequency settings depending on the frequency range of your focal animals.
+```{r, echo=TRUE, warning=FALSE, message=FALSE, results='hide'}
+# We can tell R to print the spectrograms 2x2 using the code below
+par(mfrow=c(2,2))
+
+# This is the function to create the spectrograms
+SpectrogramFunction(input.dir = "MyFocalRecordings",min.freq = 200,max.freq=10000)
+```
+
+
+Here is the function to extract the features. Again, based on the frequency range of your focal recordings you may want to change the frequency settings.
+```{r, echo=TRUE, results='hide'}
+
+MyFeatureDataFrame <- MFCCFunction(input.dir = "MyFocalRecordings",min.freq = 200,max.freq=5000)
+```
+
+Then we run the principal component analysis
+```{r, echo=TRUE, results='hide'}
+
+pca_res <- prcomp(MyFeatureDataFrame[,-c(1)], scale. = TRUE)
+```
+
+Now we visualize our results
+```{r, echo=TRUE, results='hide'}
+
+ggplot2::autoplot(pca_res, data = MyFeatureDataFrame,
+         colour = 'Class')
+```
+
+### Part 4b. Soundscape recordings {-}
+First lets visualize the spectrograms. You probably don't want to change the frequency settings for this.
+```{r, echo=TRUE, warning=FALSE, message=FALSE, results='hide'}
+# We can tell R to print the spectrograms 2x2 using the code below
+par(mfrow=c(2,2))
+
+# This is the function to create the spectrograms
+SpectrogramFunction(input.dir = "MySoundscapeRecordings",min.freq = 200,max.freq=10000)
+```
+
+Then we extract the features, which in this case are the MFCCs.
+```{r, echo=TRUE, results='hide',warning=FALSE}
+
+MySoundscapeFeatureDataframe <- 
+  MFCCFunctionSite(input.dir = "MySoundscapeRecordings",min.freq = 200,max.freq=10000)
+```
+
+Check the resulting structure of the dataframe to make sure it looks OK.
+```{r, echo=TRUE, results='hide'}
+dim(MySoundscapeFeatureDataframe)
+```
+
+Now we visualize our results
+```{r, echo=TRUE, results='hide'}
+
+pca_res <- prcomp(MySoundscapeFeatureDataframe[,-c(1)], scale. = TRUE)
+ggplot2::autoplot(pca_res, data = MySoundscapeFeatureDataframe, 
+         colour = 'Class')
+
+```
+
+*Question 4*. Do you see evidence of clustering in either your focal recordings or soundscape recordings? 
+

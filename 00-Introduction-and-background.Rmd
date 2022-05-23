@@ -1,0 +1,13 @@
+# A. Introduction and background {-}
+
+*Background*   
+In this lab you will become familiar with the ways that we analyze acoustic data. You will start by analyzing focal recordings and soundscapes from Southeast Asia, and you will then upload the data you collected for Field Lab 3 and do some preliminary analyses.
+
+*Goals of the exercises*    
+The main goal(s) of today's lab are to:  
+1) Create your own spectrograms  
+2) Learn how we use PCA to visualize differences in acoustic data   
+3) Upload and visualize your own data
+
+
+*Getting started*
