@@ -1,6 +1,6 @@
 # D. Computer Lab: Analyzing Your Acoustic Data {-}
 
-## Part 4. Now it is time to analyze the data you collected for this week's field lab. {-}
+## Part 1. Now it is time to analyze the data you collected for this week's field lab. {-}
 Upload your sound files into either the 'MyFocalRecordings' folder or the 'MySoundscapeRecordings'folder and run the code below.
 
 NOTE: Make sure to create the folders if they are not already there and add your sound files!
@@ -23,7 +23,7 @@ SpectrogramFunction(input.dir = "MyFocalRecordings",min.freq = 200,max.freq=1000
 Here is the function to extract the features. Again, based on the frequency range of your focal recordings you may want to change the frequency settings.
 ```{r, echo=TRUE, results='hide'}
 
-MyFeatureDataFrame <- MFCCFunction(input.dir = "MyFocalRecordings",min.freq = 200,max.freq=5000)
+MyFeatureDataFrame <- MFCCFunction(input.dir = "MyFocalRecordings",min.freq = 3000,max.freq=7000)
 ```
 
 Then we run the principal component analysis
@@ -71,4 +71,6 @@ ggplot2::autoplot(pca_res, data = MySoundscapeFeatureDataframe,
 ```
 
 *Question 4*. Do you see evidence of clustering in either your focal recordings or soundscape recordings? 
+
+*Question 5*. 
 

@@ -2,9 +2,18 @@
 Bioacoustics is a interdisciplinary field that is dedicated to the study of vocal animals and their habitats. 
 
 ## Part 1. Types of questions we can ask using acoustic data {-}
+Acoustic data can be used to ask questions about individuals, populations or communities. The questions can be related to the function and evolution of the signals, or about the entire acoustic community or soundscape. Fundamentally, many of the questions we ask are related to differences between groups or classes. For example, we can ask if individuals sound different, or if there are differences in the calls between animals from two different locations or populations. We can also investigate differences between entire soundscapes from different sites @sethi2020characterizing.
 
 
 ## Part 2. Focal versus passive acoustic monitoring{-}
-We can investigate entire soundscapes @sethi2020characterizing
+```{r , echo=FALSE, out.width = '25%',fig.align='center',fig.cap='Swift autonomous recording unit (photo taken by Justin D Agostino)'}
+knitr::include_graphics("images/SWIFTbest.jpg")
 
-## Part 3. {-}
+```
+
+Passive acoustic monitoring (PAM) relies on the use of autonomous acoustic recording devices and differs in several ways from focal animal recording, which is generally done by a human observer using a hand-held recording device. Focal recordings are most often done using directional microphones that focus recording of sound in a particular direction @fischer2013bioacoustic , whereas most PAM recorders use an omnidirectional microphone. In addition, PAM recorders (especially the more affordable models) use lower quality microphones with lower sensitivity. Therefore, the majority of the recordings of target signals recorded using PAM tend to be low signal-to-noise ratio as the recordings are taken in the absence of human observers with relatively low-quality omnidirectional microphones. The number of high signal-to-noise ratio signals in PAM recordings will also be influenced by the population density and source level of the animal(s) along with acoustic properties of the environment  @marten1977sound . PAM recordings can be incredibly useful for identifying the presence or absence of target signals, but is less well-suited for acoustic data analysis wherein fine-scale measurements of signals are estimated from the spectrograms.   
+
+## Part 3. Investigating differences in sound classes{-}
+
+
+
